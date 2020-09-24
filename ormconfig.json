@@ -1,5 +1,4 @@
 {
-  "name": "default",
   "type": "postgres",
   "host": "postgrees-study.cxmokhuxni2m.sa-east-1.rds.amazonaws.com",
   "port": 5432,
@@ -7,7 +6,7 @@
   "password": "wZwQuACUmT3AkV4umhfv",
   "database": "postgres",
   "logging": false,
-  "synchronize": true,
+  "synchronize": false,
   "entities": [
     "src/entity/*.ts"
   ]
