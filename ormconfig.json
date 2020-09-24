@@ -1,0 +1,14 @@
+{
+  "name": "default",
+  "type": "postgres",
+  "host": "postgrees-study.cxmokhuxni2m.sa-east-1.rds.amazonaws.com",
+  "port": 5432,
+  "username": "postgrees",
+  "password": "wZwQuACUmT3AkV4umhfv",
+  "database": "postgres",
+  "logging": false,
+  "synchronize": true,
+  "entities": [
+    "src/entity/*.ts"
+  ]
+}
