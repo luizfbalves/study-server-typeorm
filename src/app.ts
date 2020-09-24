@@ -7,7 +7,7 @@ var app: Express
 
 createConnection().then(() => {
 
-  app = express()
+  const app = express()
   app.use(express.urlencoded({ extended: false }))
   app.use(express.json())
   app.use(cors())
@@ -15,7 +15,6 @@ createConnection().then(() => {
   app.listen(3333)
 
   app.use('/', routes)
-
 
   app.get('/', (req: Request, res: Response) => res.send('api working!!!'))
 })
