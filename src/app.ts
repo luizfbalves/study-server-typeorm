@@ -1,7 +1,4 @@
-import express, { Request, Response, Express } from 'express'
-import { createConnection } from "typeorm";
-
-createConnection().then()
+import express, { Request, Response } from 'express'
 
 const app = express()
 

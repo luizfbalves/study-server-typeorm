@@ -1,13 +1,42 @@
 import { getRepository } from "typeorm"
 import { Request, Response } from "express";
-import { Users } from "../entity/Users"
+import Users from "../entities/Users"
+
+interface IUsers {
+  username: string,
+  password: string,
+  created_at: Date
+}
 
 export default class UsersAction {
 
-  static async find(req: Request, res: Response) {
+  static async find() {
     try {
 
-      return res.json(await getRepository(Users).find())
+      return await getRepository(Users).find()
+
+    } catch (error) {
+      throw error
+    }
+  }
+
+  static async create(data: IUsers) {
+    try {
+
+      const result = await getRepository(Users)
+        .createQueryBuilder()
+        .insert()
+        .into(Users)
+        .values(data)
+        .execute()
+
+      if (result) {
+        return {
+          message: 'User created!',
+          status: 201,
+          id: result.identifiers
+        }
+      }
 
     } catch (error) {
       throw error

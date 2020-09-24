@@ -8,6 +8,6 @@
   "logging": false,
   "synchronize": false,
   "entities": [
-    "src/entity/*.ts"
+    "src/entities/*.ts"
   ]
 }
