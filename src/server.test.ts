@@ -1,6 +1,6 @@
 import req from 'supertest'
 
-test('Users', () => {
+test('base', () => {
   req('BASE_URL').get('/', (res) => {
     expect(res.text).toBe('api working!!!')
   })
