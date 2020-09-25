@@ -1,24 +1,12 @@
 import { getRepository } from "typeorm"
-import { Request, Response } from "express";
 import Users from "../entities/Users"
 
 interface IUsers {
   username: string,
-  password: string,
-  created_at: Date
+  password: string
 }
 
 export default class UsersAction {
-
-  static async find() {
-    try {
-
-      return await getRepository(Users).find()
-
-    } catch (error) {
-      throw error
-    }
-  }
 
   static async create(data: IUsers) {
     try {
@@ -37,6 +25,16 @@ export default class UsersAction {
           id: result.identifiers
         }
       }
+
+    } catch (error) {
+      throw error
+    }
+  }
+
+  static async find(id?: string) {
+    try {
+
+      return id ? await getRepository(Users).findOne(id) : await getRepository(Users).find()
 
     } catch (error) {
       throw error

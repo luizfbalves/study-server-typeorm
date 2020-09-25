@@ -1,30 +1,14 @@
 import UsersAction from '../actions/UsersAction'
 import { Request, Response } from "express";
-import { TsJestTransformer } from 'ts-jest/dist/ts-jest-transformer';
 
 interface IUsers {
   username: string,
-  password: string,
-  created_at: Date
+  password: string
 }
 
 export default class Users {
 
-  static async findUsers(req: Request, res: Response) {
-    try {
-
-      return res.json(await UsersAction.find())
-
-    } catch (error) {
-      return res.status(400).json({
-        message: "find users failure!",
-        code: 400,
-        error: error
-      })
-    }
-  }
-
-  static async createUsers(req: Request, res: Response) {
+  static async UsersCreate(req: Request, res: Response) {
     try {
       const data: IUsers = req.body
 
@@ -38,4 +22,20 @@ export default class Users {
       })
     }
   }
+
+  static async UsersFind(req: Request, res: Response) {
+    try {
+      const { id } = req.params
+
+      return res.json(await UsersAction.find(id))
+
+    } catch (error) {
+      return res.status(400).json({
+        message: "find users failure!",
+        code: 400,
+        error: error
+      })
+    }
+  }
+
 }

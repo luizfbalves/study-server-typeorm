@@ -7,6 +7,12 @@ test('[GET] /users', async () => {
   })
 }, 30000)
 
+test('[GET] /users/1', async () => {
+  await req(app).get('/users/1', (res) => {
+    expect(res.code).toBe(200)
+  })
+}, 30000)
+
 test('[PUT] /users/create', async () => {
   await req(app).put('/users/create', (res) => {
     expect(res.code).toBe(200)

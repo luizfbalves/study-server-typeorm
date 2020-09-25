@@ -3,7 +3,7 @@ import express from 'express'
 
 const router = express.Router()
 
-router.get('/', (req, res) => UsersController.findUsers(req, res))
-router.put('/create', (req, res) => UsersController.createUsers(req, res))
+router.get('/:id?', (req, res) => UsersController.UsersFind(req, res))
+router.put('/create', (req, res) => UsersController.UsersCreate(req, res))
 
 export default router

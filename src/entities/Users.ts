@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn } from "typeorm";
 
 @Entity()
 export default class Users {
@@ -12,7 +12,7 @@ export default class Users {
   @Column()
   password: string;
 
-  @Column()
+  @CreateDateColumn()
   created_at: Date;
 
 }
