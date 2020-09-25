@@ -1,6 +1,6 @@
 import UsersAction from '../actions/UsersAction'
 import { Request, Response } from "express";
-
+import jwt from 'jsonwebtoken'
 interface IUsers {
   username: string,
   password: string
@@ -14,10 +14,19 @@ export default class Users {
 
       const result = await UsersAction.login(username, password)
 
-      return res.json(result)
+      if (result) {
+        const token = jwt.sign({ username, password }, String(process.env.SECRET))
+
+        return res.json({ token })
+      }
+
 
     } catch (error) {
-
+      return res.status(401).json({
+        message: "User not found!",
+        code: 401,
+        error: error
+      })
     }
   }
 
