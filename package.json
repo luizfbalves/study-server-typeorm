@@ -19,6 +19,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "jest": "^26.4.2",
+    "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1",
     "pg": "^8.3.3",
     "reflect-metadata": "^0.1.13",
@@ -29,6 +30,7 @@
     "typescript": "^4.0.3"
   },
   "devDependencies": {
+    "dot-env": "^0.0.1",
     "nodemon": "^2.0.4"
   },
   "jest": {
