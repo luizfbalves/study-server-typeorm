@@ -13,7 +13,6 @@ router.get(
   '/:id?',
   auth,
   (req, res) => UsersController.usersFind(req, res)
-
 )
 
 router.put(
